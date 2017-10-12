@@ -35,21 +35,23 @@ brew install chromedriver
 pip install openpyxl
 ```
 
-### 7. Browser Driver
+### 7. lxml Package
+```
+pip install lxml
+```
+
+### 8. Browser Driver
 Assuming you are using Google Chrome, then run the following command:
 ```
 brew install chromedriver
 ```
 If you are using Mozilla Firefox, then read the [Documentation for geckodriver](https://github.com/mozilla/geckodriver)
 
-### 8. Installing lxml
-```
-pip install lxml
-```
+
 
 # User Manual
 
-Hi, <first name>! Need help to be more productive? Good news, I'm here to manage your time! Feel free to ask me stuff!
+Hi! Need help to be more productive? Good news, I'm here to manage your time! Feel free to ask me stuff!
 
 Want to know me more? Just ask me whatever you want and hope I can understand
 
@@ -146,11 +148,12 @@ This bot is a software written to help NTU students keep track of their course s
 This bot allows you to automatically access your course schedule from STARS. You no longer have to worry about **ODD** and **EVEN** weeks as well as lectures and seminars occuring on **random** weeks through out the semester as the bot will automatically handle it for you. 
 The bot also reminds you to attend your lectures, tutorials, labs and events **one hour** before respective events start in form of a **push notification**.
 
-To recapitulate, there is no need for you to print your class schedule from STARS planner anymore. Furthermore, you don't have to manually check your class schedule if you want to add any personal events of your own (this is highly prone to error!) as the bot will automatically tell you if you are free on that time interval or not. In short, you can say good bye to the mindblowing **ODD* and **EVEN** weeks!
+To recapitulate, there is no need for you to print your class schedule from STARS planner anymore. Furthermore, you don't have to manually check your class schedule if you want to add any personal events of your own (this is highly prone to error!) as the bot will automatically tell you if you are free on that time interval or not. In short, you can say good bye to the mindblowing **ODD** and **EVEN** weeks!
 
 ### 1.2 System Requirements
 
-The bot requires Telegram versions released after 9 April, 2016 or Telegram Web.
+1. Telegram versions released after 9 April, 2016 or Telegram Web.
+2. Python3.6x
 
 ## Chapter 2 Getting Started
 > [Back to contents](#contents)
@@ -178,7 +181,7 @@ We have several alternatives to run the program as to which Python platform you 
 
 Write your browser name (i.e. *chrome* or *firefox*) and save it in the **[resources/](resources/)** folder under the name of **browser.txt**
 
->**Important Notes**: Your browser must have its driver in order to work. [Refer to step in the pre-requisite section](#7-browser-driver)
+>**Important Notes**: Your browser must have its driver in order to work. [Refer to step in the pre-requisite section](#8-browser-driver)
 
 ### 2.5 Testing your Bot
 
@@ -430,9 +433,7 @@ Okay send me the details in following format:
 
 Event Name;location;YYYY-MM-DD HH:MM;YYYY-MM-DD HH:MM
 
-For example:
-
-Party;NTU;2017-10-08 20:00;2017-10-08 22:00
+For example: Party;NTU;2017-10-08 20:00;2017-10-08 22:00
 ```
 Input the details of your event according to the format above.
 If addition of event is successful, the bot will return this following message:
@@ -468,7 +469,7 @@ Run /addevent to add another event with different datetime
 ### 4.5 Removing Your Event
 
 You can remove the events you have put in your Google Calendar by typing in **/removeevent** to your bot. 
-The bot will display the events you currently have on your calendar as a keyboard. Click on the event you want to remove and wait for the success message as shown below:
+The bot will display the events you currently have on your calendar as a keyboard with the following format: **event_name;start_time;end_time**. Click on the event you want to remove and wait for the success message as shown below:
 ```
 The event Party;2017-10-08 20:00;2017-10-08 22:00 has been removed!
 
@@ -520,6 +521,10 @@ The bot will respond in the following manner:
 Please enter the date interval using the following format:
 
 YYYY-MM-DD HH:MM;YYYY-MM-DD HH:MM
+
+For example:
+
+2017-10-09 08:00;2017-10-09 16:00
 ```
 Input the details in the format above.
 If you are free at that particular time interval, the bot will respond in this following manner:
@@ -555,6 +560,22 @@ What you probably want to do next:
 
 Run /isfree again with different datetime
 ```
+If there is something wrong with the date and time you have inputted, the bot will respond in this following manner:
+```
+Your format is correct, however we cannot perform the query to your Google Account
+
+Chances are:
+
+1. You have problems with your API keys
+
+2. You entered a bad date, e.g. your end time is smaller than your start time
+
+What you probably want to do next:
+
+Resolve your API problem
+
+Run /addevent again and give me a reasonable date interval
+```
 
 ### 4.8 See All Your Upcoming Events
 
@@ -563,10 +584,9 @@ You can view your upcoming events through the **/getupcomingevents** command. Th
 ```
 Please enter how many upcoming events are you looking for!
 
-Press!
+For example: 10
 ```
-It will then display a markup keyboard displaying a number from 1 to 7. You can choose to display upto 7 upcoming events. 
-In the case where you clicked **7**, the bot will respond in this following manner:
+In the case where you entered **7**, the bot will reply in this following manner:
 ```
 Getting 7 upcoming event(s) for you
 Here they are!
@@ -578,6 +598,8 @@ It displays the **name of the event, date of the event and time interval of the 
 
 To see all the commands available in your bot, you may type in **/help** and the bot will display the commands available in the bot in the following manner:
 ```
+Here is the list of commands that I can do:
+
 Basic Commands 
 /start - Send welcome message 
 /help - list available commands 

@@ -1,17 +1,14 @@
 import os
-import sys
 import json
 from openpyxl import load_workbook, Workbook
-# from openpyxl.utils.dataframe import dataframe_to_rows
 
 
 class DB(object):
 
     def __init__(self):
         """Initialize WorkBook"""
-        self.filename = "/../resources/database/database.xlsx"
-        self.cwd = os.path.dirname(sys.argv[0])
-        self.path_file = self.cwd + self.filename
+        self.filename = "../resources/database/database.xlsx"
+        self.path_file = self.filename
         self.wb = Workbook()
         self.sheet = self.wb.active
         self.sheet['A1'] = 'chat_id'
@@ -103,6 +100,10 @@ class DB(object):
                             result_list.append(None)
                     break
                 break
+        # No chat id yet
+        if len(result_list) == 0:
+            for i in range(len(arg_list)):
+                result_list.append(None)
         return result_list
     
     def set_table_query(self, chat_id, update_list):
