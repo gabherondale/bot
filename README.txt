@@ -136,6 +136,20 @@ Want to know what I can do? Just run /help to see commands that I can do to help
 
 ### [Chapter 5 Further Information](#chapter-5-further-information-1)
 
+### [Chapter 6 Our Python Files](#chapter-6-our-python-files-1)
+
+#### 6.1 app.py
+
+#### 6.2 ErrorClass.py
+
+#### 6.3 GoogleapiClass.py
+
+#### 6.4 HelperClass.py
+
+#### 6.5 BotClass.py 
+
+#### 6.6 DBClass.py 
+
 
 
 
@@ -662,3 +676,31 @@ Check if you have inputted a **Monday** and no other day for the start of the fi
 Whenever a keyboard is displayed for you to click, make sure you click on them only **once** . Clicking the keyboard more than once will result in an error in your database and the bot may not be able to run properly.
 
 **Do not** scroll up and click on previous keyboard once you are done with that specific command. This can result in an error in your database and the bot may not be able to run properly.
+
+## Chapter 6 Our Python Files
+> [Back to contents](#contents)
+
+### 6.1 app.py
+
+**app.py** is where we combine all our python files into one file. This is our **main** python file and **app.py** will be run to start the bot.
+
+### 6.2 ErrorClass.py
+
+**ErrrorClass.py** handles some possible errors that can occur in the bot to prevent the bot from crashing
+
+### 6.3 GoogleapiClass.py
+
+**GoogleapiClass.py** links our program and its command, for instance /addevent, /removeevent, to Google Calendar
+
+### 6.4 HelperClass.py
+
+**HelperClass.py** is used for string formatting to create Google Calendar events. It contains everything that is related to the process needed by the bot, for instance the process of accessing website, changing string format, checking validity of string, and parsing the index.
+
+### 6.5 BotClass.py 
+
+**BotClass.py** is used to set up the bot (bot's token and etc.). It also contains the responses of the bot to inputs from the user. Hence **BotClass.py** contains inline support, keyboard markup support as well as the bot's responses for normal conversation with the user.
+
+### 6.6 DBClass.py
+
+**DBClass.py** links our program to Microsoft Excel and creates a database for our calendar there. It parses your index to dictionary, append the list inside the dictionary, parse it back to strings and put it into the database.
+
