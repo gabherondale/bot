@@ -109,7 +109,7 @@ Want to know what I can do? Just run /help to see commands that I can do to help
 #### 3.13 /quit
 
 
-### [Chapter 4 Inputting Course Indexes and Finding Common Free Time](#chapter-4-inputting-course-indexes-and-finding-common-free-time-1)
+### [Chapter 4 Inputting Course Indexes](#chapter-4-inputting-course-indexes-1)
 
 ### 4.1 Inputting Your Course
 
@@ -276,7 +276,7 @@ This command displays all the commands present in the bot
 This quits the bot.
 
 
-## Chapter 4 Inputting Course Indexes and Finding Common Free Time
+## Chapter 4 Inputting Course Indexes
 > [Back to contents](#contents)
 
 
