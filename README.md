@@ -138,17 +138,17 @@ Want to know what I can do? Just run /help to see commands that I can do to help
 
 ### [Chapter 6 Our Python Files](#chapter-6-our-python-files-1)
 
-#### 6.1 app.py
+#### 6.1 main/app.py
 
-#### 6.2 ErrorClass.py
+#### 6.2 resources/modules/BotClass.py
 
-#### 6.3 GoogleapiClass.py
+#### 6.3 resources/modules/GoogleapiClass.py
 
-#### 6.4 HelperClass.py
+#### 6.4 resources/modules/HelperClass.py
 
-#### 6.5 BotClass.py 
+#### 6.5 resources/modules/DBClass.py
 
-#### 6.6 DBClass.py 
+#### 6.6 resources/modules/ErrorClass.py
 
 
 
@@ -680,27 +680,41 @@ Whenever a keyboard is displayed for you to click, make sure you click on them o
 ## Chapter 6 Our Python Files
 > [Back to contents](#contents)
 
-### 6.1 app.py
+#### 6.1 main/app.py
 
-**app.py** is where we combine all our python files into one file. This is our **main** python file and **app.py** will be run to start the bot.
+This file is responsible for running the entire bot scripts in the resources/modules directory. Using the MessageLoop class, the these scripts are continuously run, unless 	manually interrupted or an unhandled error occurs.
 
-### 6.2 ErrorClass.py
 
-**ErrrorClass.py** handles some possible errors that can occur in the bot to prevent the bot from crashing
+#### 6.2 resources/modules/BotClass.py
 
-### 6.3 GoogleapiClass.py
+This file is responsible for:
+      1. Initializing the bot
+      2. Handling messages
+      3. Handling commands
 
-**GoogleapiClass.py** links our program and its command, for instance /addevent, /removeevent, to Google Calendar
 
-### 6.4 HelperClass.py
+#### 6.3 resources/modules/GoogleapiClass.py
 
-**HelperClass.py** is used for string formatting to create Google Calendar events. It contains everything that is related to the process needed by the bot, for instance the process of accessing website, changing string format, checking validity of string, and parsing the index.
+This file is responsible for:
+      1. Initializing credential requirements for Google Calendar API
+      2. Read and write the data in the Google Calendar
 
-### 6.5 BotClass.py 
 
-**BotClass.py** is used to set up the bot (bot's token and etc.). It also contains the responses of the bot to inputs from the user. Hence **BotClass.py** contains inline support, keyboard markup support as well as the bot's responses for normal conversation with the user.
+#### 6.4 resources/modules/HelperClass.py
 
-### 6.6 DBClass.py
+The file is responsible for parsing string inputs and outputs
 
-**DBClass.py** links our program to Microsoft Excel and creates a database for our calendar there. It parses your index to dictionary, append the list inside the dictionary, parse it back to strings and put it into the database.
+
+#### 6.5 resources/modules/DBClass.py
+
+This file is responsible for:
+      1. Generate an excel file as a database
+      2. Read and write the excel file
+
+
+#### 6.6 resources/modules/ErrorClass.py
+
+This file is used to define custom exceptions. These exceptions are needed to handle specific errors, such as API request error, parse error, etc.
+
+
 
